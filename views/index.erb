@@ -6,26 +6,32 @@
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-	<h1 align="center">US Holidays</h1>
+
+
+	<h1>US Holidays this month</h1>
+	<form>
+		<p>Month</p>
+		<input name="month" type="number">
+		<p>Day</p>
+		<input name="day" type="number">
+		<p>Year</p>
+		<input name="year" type="number" >
+		<button type="submit">Submit!</button>
+	</form>
+
+	<% if @holidays.any? %>
+  		
+		<% @holidays.each do |holiday| %>
+			<ul>
+				<li><%= holiday['name'] %>, <%=holiday['date'] %></li>
+			</ul>
+		<% end %>
+	<% else %>
+  	<h3>No results! Try again</h3>
+	<% end %>
+
 	
-				<h2>Holidays this Month</h2>
-					<ul>
-						<% @holidays.each do |date| %>
-							<% date.each do |holiday| %>
-							<li><%= holiday['name']%>: <%=holiday['date'] %></li>
-							<% end %>
-						<% end %>
-					</ul>		
-			
-		
-				<h2>Holidays in My Birth Month</h2>
-					<ul>
-						<% @old_holiday.each do |date| %>
-							<% date.each do |holiday| %>
-							<li><%= holiday['name']%>: <%=holiday['date'] %></li>
-							<% end %>
-						<% end %>
-					</ul>		
+
 			
 </body> 
 </html>
