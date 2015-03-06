@@ -11,11 +11,11 @@
 	<h1>US Holidays this month</h1>
 	<form>
 		<p>Month</p>
-		<input name="month" type="number" required>
+		<input name="month" type="number" value="<%= params['month'] %>"  min="1" max="12" required >
 		<p>Day</p>
-		<input name="day" type="number" required>
+		<input name="day" type="number" value="<%= params['day'] %>"  min="1" max="31"required>
 		<p>Year</p>
-		<input name="year" type="number" required>
+		<input name="year" type="number" value="<%= params['year'] %>" required>
 		<button type="submit">Submit!</button>
 	</form>
 
